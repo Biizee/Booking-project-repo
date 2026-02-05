@@ -19,4 +19,20 @@ class Room(models.Model):
     
 
 
+class Air_tickets(models.Model):
+    tickets_from = models.CharField(max_length=512)
+    tickets_to = models.CharField(max_length=512)
+    time = models.DateTimeField()
+    airline_company = models.TextField()
+    flight_number = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.tickets.tickets_from}/{self.tickets.tickets_to}"
+    
+    class Meta:
+        verbose_name = "Air ticket"
+        verbose_name_plural = "Air tickets"
+        ordering = ["time"]
+
+
         
