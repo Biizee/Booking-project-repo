@@ -3,18 +3,33 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Детальний огляд</title>
+    <title>Booking list</title>
+
+    <style>
+        a {
+            color: black;
+            text-decoration: none;
+            font-style: italic;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
-    
-    <h2> {{ product.name }} </h2>
-    <h3> {{ product.price }} </h3>
+    <h2>
+        Bookings
+    </h2>
+    <ul>
+        {% for booking in booking_list %}
 
-    <p>
-        {{ product.description }}
-    </p>
+        
 
+            <li>
+                {{ booking.user.username }} - {{ booking.room }}, {{ booking.air_tickets.tickets_from }} / {{ booking.air_tickets.tickets_to }}
+            </li>
+
+        {% endfor %}
+    </ul>
 </body>
 
 </html>
