@@ -23,3 +23,16 @@ def booking_list(request):
         template_name = "booking/booking_list.html",
         context=context,
     )
+
+
+def get_booking_by_id(request, booking_id):
+    booking = Booking.objects.get(id = booking_id)
+    context = {
+        "booking": booking,
+    }
+    return render(
+        request,
+        template_name="booking/booking_details.html",
+        context=context,
+    )
+
