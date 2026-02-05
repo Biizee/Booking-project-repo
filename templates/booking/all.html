@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,22 +13,50 @@
             font-style: italic;
             font-weight: bold;
         }
+
+        body {
+            margin: 0;
+        }
+
+        header {
+            height: 750px;
+            border-bottom: 4px solid black;
+        }
+
+        header img {
+            height: 100%;
+            width: 100%;
+        }
+
+        main {
+            padding: 20px;
+            min-height: calc(100vh - 750px);
+            border-left: 4px solid black;
+            border-right: 4px solid black;
+            border-bottom: 4px solid black;
+        }
     </style>
 </head>
 
 <body>
 
-    <a href = "{% url 'booking_list' %}">
-        <h2>Bookings</h2>
-    </a>
+    <header>
+        <img src="{% static 'images/logo.png' %}" alt="Cool logo XD">
+    </header>
 
-    <a href="{% url 'air_tickets_list' %}">
-        <h2>Air tickets</h2>
-    </a>
+    <main>
+        <a href = "{% url 'booking_list' %}">
+            <h2>Bookings</h2>
+        </a>
 
-    <a href="{% url 'rooms_list' %}">
-        <h2>Rooms</h2>
-    </a>
+        <a href="{% url 'air_tickets_list' %}">
+            <h2>Air tickets</h2>
+        </a>
+
+        <a href="{% url 'rooms_list' %}">
+            <h2>Rooms</h2>
+        </a>
+    </main>
 
 </body>
 
