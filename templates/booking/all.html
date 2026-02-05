@@ -8,34 +8,43 @@
 
     <style>
         a {
-            color: black;
+            color: #abb8c3;
             text-decoration: none;
-            font-style: italic;
             font-weight: bold;
         }
 
         body {
-            margin: 0;
+            background-color: #292c35;
+            /* font-family: 'Lora', sans-serif; */
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
         }
 
         header {
-            height: 750px;
-            border-bottom: 4px solid black;
+            height: calc(738px - 40%);
+            display: flex;
+            justify-content: center;
+            padding: 20px
         }
 
         header img {
             height: 100%;
-            width: 100%;
+            width: calc(2048px - 40%);
+            border-left: 3px solid #abb8c3;
+            border-right: 3px solid #abb8c3;
         }
 
         main {
             padding: 20px;
-            min-height: calc(100vh - 750px);
-            border-left: 4px solid black;
-            border-right: 4px solid black;
-            border-bottom: 4px solid black;
+            height: calc(100vh - calc(738px - 40%));
+            border-left: 10px solid #abb8c3;
         }
+
     </style>
+
+    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/png">
+
 </head>
 
 <body>
