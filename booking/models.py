@@ -35,4 +35,20 @@ class Air_tickets(models.Model):
         ordering = ["time"]
 
 
+
+class Booking(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="bookings")
+    room = models.ForeignKey(Room, on_delete=models.CASCADE, related_name="bookings")
+    tickets = models.ForeignKey(Air_tickets, on_delete=models.CASCADE, related_name="bookings")
+    start_time = models.DateTimeField()
+    end_time = models.DateTimeField()
+    creation_time = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.room} {self.tickets.tickets_from}/{self.tickets.tickets_to}"
+
+    class Meta:
+        verbose_name = "Booking"
+        verbose_name_plural = "Bookings"
+        ordering = ["start_time"]
         
