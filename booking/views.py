@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from booking.models import Booking, Air_tickets
+from booking.models import Booking, Air_tickets, Room
 
 # Create your views here.
 
@@ -58,6 +58,30 @@ def get_air_ticket_by_id(request, ticket_id):
     return render(
         request,
         template_name = "booking/tickets_details.html",
+        context=context,
+    )
+
+
+def rooms_list(request):
+    rooms = Room.objects.all()
+    context = {
+        "rooms_list": rooms,
+    }
+    return render(
+        request,
+        template_name = "booking/rooms_list.html",
+        context=context,
+    )
+
+
+def get_room_by_id(request, room_id):
+    room = Room.objects.get(id = room_id)
+    context = {
+        "room": room,
+    }
+    return render(
+        request,
+        template_name = "booking/rooms_details.html",
         context=context,
     )
 

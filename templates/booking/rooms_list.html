@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rooms list</title>
+
+    <style>
+        a {
+            color: black;
+            text-decoration: none;
+            font-style: italic;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>
+        Rooms
+    </h2>
+    <ul>
+        {% for room in rooms_list %}
+
+            <li>
+                <a href="{% url 'rooms_details' room.id %}" target="_blank" >
+                    {{ room }}
+                </a>
+            </li>
+
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
