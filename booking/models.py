@@ -27,7 +27,7 @@ class Air_tickets(models.Model):
     flight_number = models.IntegerField()
 
     def __str__(self):
-        return f"{self.tickets_from}/{self.tickets_to} - {self.airline_company}"
+        return f"#{self.flight_number} {self.tickets_from}/{self.tickets_to} - {self.airline_company}"
     
     class Meta:
         verbose_name = "Air ticket"
@@ -45,7 +45,7 @@ class Booking(models.Model):
     creation_time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.user.username} - {self.room} {self.air_tickets.tickets_from}/{self.air_tickets.tickets_to}"
+        return f"{self.user.username} - {self.room}, {self.air_tickets}"
 
     class Meta:
         verbose_name = "Booking"
