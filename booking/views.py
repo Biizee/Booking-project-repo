@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from booking.models import Booking, Air_tickets, Room
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -84,4 +85,38 @@ def get_room_by_id(request, room_id):
         template_name = "booking/rooms_details.html",
         context=context,
     )
+
+
+def book_room(request):
+    if request.method == "POST":
+        room_number = request.POST.get("room-number")
+        start_time = request.POST.get("start-time")
+        end_time = request.POST.get("end-time")
+
+        try:
+            room = Room.objects.get(number = room_number)
+
+        except ValueError:
+            return HttpResponse(
+                "Wrong value for room number!",
+                status=400
+            )
+        
+        except Room.DoesNotExist:
+            return HttpResponse(
+                "This room number doesn't exist",
+                status=400
+            )
+        
+        booking = Booking.objects.create(
+            user=request.user,
+            room=room,
+            start_time=start_time,
+            end_time=end_time
+        )
+
+        return redirect("booking-details", pk=booking.id)
+
+    else:
+        return render(request, template_name="booking/booking_form.html")
 
