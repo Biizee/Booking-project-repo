@@ -128,13 +128,12 @@ def create_room(request):
         location = request.POST.get("location")
 
         try:
-            rooms = Room.objects.all()
-            for room in rooms:
-                if room.number == room_number:
-                    return HttpResponse(
-                        "This room already exist",
-                        status=400
-                    )
+            room = Room.objects.get(number = room_number)
+            if room:
+                return HttpResponse(
+                "This room already exist!",
+                status=400
+            )
 
         except ValueError:
             return HttpResponse(
@@ -142,13 +141,14 @@ def create_room(request):
                 status=400
             )
         
-        room = Room.objects.create(
-            number = room_number,
-            capacity=capacity,
-            location = location,
-        )
-
-        return redirect("rooms-details", pk=room.id)
+        except Room.DoesNotExist:
+            room = Room.objects.create(
+                number = room_number,
+                capacity=capacity,
+                location = location,
+            )
+    
+            return redirect("rooms-details", pk=room.id)
 
     else:
         return render(request, template_name="booking/room_form.html")
