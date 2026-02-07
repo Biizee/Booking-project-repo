@@ -8,7 +8,7 @@
         {% for ticket in tickets_list %}
 
             <li>
-                <a href="{% url 'ticket_details' ticket.id %}" target="_blank" >
+                <a href="{% url 'ticket-details' ticket.id %}" target="_blank" >
                     {{ ticket }}
                 </a>
             </li>

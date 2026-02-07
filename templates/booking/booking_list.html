@@ -8,7 +8,7 @@
         {% for booking in booking_list %}
 
             <li>
-                <a href="{% url 'booking_details' booking.id %}" target="_blank" >
+                <a href="{% url 'booking-details' booking.id %}" target="_blank" >
                     {{ booking.user.username }} - {{ booking.room }}, {{ booking.air_tickets }}
                 </a>
             </li>
