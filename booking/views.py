@@ -147,9 +147,48 @@ def create_room(request):
                 capacity=capacity,
                 location = location,
             )
-    
+
             return redirect("rooms-details", pk=room.id)
 
     else:
         return render(request, template_name="booking/room_form.html")
+
+
+def create_ticket(request):
+    if request.method == "POST":
+        from_ = request.POST.get("from")
+        to = request.POST.get("to")
+        time = request.POST.get("time")
+        airline_company = request.POST.get("airline-company")
+        flight_number = request.POST.get("flight-number")
+        booking_id = request.POST.get("booking-id")
+
+        try:
+            booking = Booking.objects.get(id = booking_id)
+
+        except ValueError:
+            return HttpResponse(
+                "Wrong value!",
+                status=400
+            )
+        
+        except Room.DoesNotExist:
+            return HttpResponse(
+                "This room booking doesn't exist",
+                status=400
+            )
+        
+        ticket = Air_tickets.objects.create(
+            tickets_from = from_,
+            tickets_to = to,
+            time = time,
+            airline_company = airline_company,
+            flight_number = flight_number,
+            booking = Booking.objects.get(id = booking_id)
+        )
+
+        return redirect("ticket-details", pk=ticket.id)
+
+    else:
+        return render(request, template_name="booking/ticket_form.html")
 
