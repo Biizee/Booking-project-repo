@@ -10,4 +10,5 @@ urlpatterns = [
     path("rooms-list/", booking_views.rooms_list, name="rooms-list"),
     path("rooms-list/<int:pk>/", booking_views.get_room_by_id, name="rooms-details"),
     path("book-room/", booking_views.book_room, name="book-room"),
+    path("create-room/", booking_views.create_room, name="create-room"),
 ]
