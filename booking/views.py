@@ -26,8 +26,8 @@ def booking_list(request):
     )
 
 
-def get_booking_by_id(request, booking_id):
-    booking = Booking.objects.get(id = booking_id)
+def get_booking_by_id(request, pk):
+    booking = Booking.objects.get(id = pk)
     context = {
         "booking": booking,
     }
@@ -51,8 +51,8 @@ def air_tickets_list(request):
 
 
 
-def get_air_ticket_by_id(request, ticket_id):
-    ticket = Air_tickets.objects.get(id = ticket_id)
+def get_air_ticket_by_id(request, pk):
+    ticket = Air_tickets.objects.get(id = pk)
     context = {
         "ticket" : ticket,
     }
@@ -75,8 +75,8 @@ def rooms_list(request):
     )
 
 
-def get_room_by_id(request, room_id):
-    room = Room.objects.get(id = room_id)
+def get_room_by_id(request, pk):
+    room = Room.objects.get(id = pk)
     context = {
         "room": room,
     }
