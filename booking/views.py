@@ -120,3 +120,36 @@ def book_room(request):
     else:
         return render(request, template_name="booking/booking_form.html")
 
+
+def create_room(request):
+    if request.method == "POST":
+        room_number = request.POST.get("room-number")
+        capacity = request.POST.get("capacity")
+        location = request.POST.get("location")
+
+        try:
+            rooms = Room.objects.all()
+            for room in rooms:
+                if room.number == room_number:
+                    return HttpResponse(
+                        "This room already exist",
+                        status=400
+                    )
+
+        except ValueError:
+            return HttpResponse(
+                "Wrong value for room number!",
+                status=400
+            )
+        
+        room = Room.objects.create(
+            number = room_number,
+            capacity=capacity,
+            location = location,
+        )
+
+        return redirect("rooms-details", pk=room.id)
+
+    else:
+        return render(request, template_name="booking/room_form.html")
+
