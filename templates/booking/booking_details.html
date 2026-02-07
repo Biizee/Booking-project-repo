@@ -1,44 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+{% block content %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Details about booking</title>
-
-    <style>
-        a {
-            color: #abb8c3;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        body {
-            background-color: #292c35;
-            /* font-family: 'Lora', sans-serif; */
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        li, h2, h1{
-        color: #abb8c3;
-        }
-
-    </style>
-
-    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/png">
-
-</head>
-
-<body>
     
     <h1>User - {{ booking.user.username }}</h1>
     <h2>Room - {{ booking.room }}</h2>
-    <h2>Air ticket - {{ booking.air_tickets }}</h2>
     <h2>Start time - {{ booking.start_time }}</h2>
     <h2>End time - {{ booking.end_time }}</h2>
     <h2>Creation time - {{ booking.creation_time }}</h2>
+    <p>Booking id - {{ booking.id }}</p>
 
-</body>
-
-</html>
+{% endblock %}

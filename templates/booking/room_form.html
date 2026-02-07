@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <form method="POST" action="{% url 'create-room' %}">
+    {% csrf_token %}
+
+        <label for="room-number">Room number</label>
+        <input type="text" id="room-number" name="room-number">
+        <br>    
+
+        <label for="capacity">Capacity</label>
+        <input type="text" id="capacity" name="capacity">
+        <br>    
+
+        <label for="location">Room location</label>
+        <input type="text" id="location" name="location">
+        <br>
+
+        <button type="submit">Add this room</button>
+
+    </form>
+    
+{% endblock %}

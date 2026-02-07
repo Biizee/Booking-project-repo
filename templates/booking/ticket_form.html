@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <form method="POST" action="{% url 'create-ticket' %}">
+    {% csrf_token %}
+
+        <label for="from">From</label>
+        <input type="text" id="from" name="from">
+        <br>    
+
+        <label for="to">To</label>
+        <input type="text" id="to" name="to">
+        <br>
+
+        <label for="time">Time</label>
+        <input type="datetime-local" id="time" name="time">
+        <br>
+
+        <label for="airline-company">Your airline company</label>
+        <input type="text" id="airline-company" name="airline-company">
+        <br>
+
+        <label for="flight-number">Flight number</label>
+        <input type="text" id="flight-number" name="flight-number">
+        <br>
+
+        <label for="booking-id">Booking id</label>
+        <input type="text" id="booking-id" name="booking-id">
+        <br>
+
+        <button type="submit">Book this ticket</button>
+
+    </form>
+    
+{% endblock %}
