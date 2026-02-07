@@ -1,36 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Details about air ticket</title>
-
-    <style>
-        a {
-            color: #abb8c3;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        body {
-            background-color: #292c35;
-            /* font-family: 'Lora', sans-serif; */
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        li, h2, h1{
-        color: #abb8c3;
-        }
-
-    </style>
-    
-    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/png">
-
-</head>
-
-<body>
+{% extends "base.html" %}
+{% block content %}
     
     <h2>From - {{ ticket.tickets_from }}</h2>
     <h2>To - {{ ticket.tickets_to }}</h2>
@@ -38,6 +7,4 @@
     <h2>Airline company - {{ ticket.airline_company }}</h2>
     <h2>Flight number - {{ ticket.flight_number }}</h2>
 
-</body>
-
-</html>
+{% endblock %}

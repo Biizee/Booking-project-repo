@@ -1,36 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+{% block content %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Rooms list</title>
-
-    <style>
-        a {
-            color: #abb8c3;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        body {
-            background-color: #292c35;
-            /* font-family: 'Lora', sans-serif; */
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        li, h2, h1{
-        color: #abb8c3;
-        }
-
-    </style>
-
-    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/png">
-    
-</head>
-
-<body>
     <h2>
         Rooms
     </h2>
@@ -45,6 +15,5 @@
 
         {% endfor %}
     </ul>
-</body>
-
-</html>
+    
+{% endblock %}
